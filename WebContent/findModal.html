@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css">
+<script src="bootstrap/js/jquery-2.2.3.min.js"></script>
+<script>
+	$(function() {
+		$("#btnOpen").click(function() {
+			$('div.modal').modal();
+		});
+	});
+	
+</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row-fluid">
+			<div class="span10">
+
+				<div class="modal hide" id="themodal">
+					<div class="modal-header">
+						<a href="#" class="close" data-dismiss="modal">&times;</a>
+						<h3>ID/패스워드 찾기</h3>
+					</div>
+					<div class="modal-body">
+						<h5>아이디찾기</h5>
+						이 름 : <input type="text" maxlength="8px" /><br/>
+						전화번호 : <input type="text" name="headNum" maxlength="3" style="width: 30px" />-
+						<input type="text" name="midNum" maxlength="4" style="width: 40px" />-
+						<input type="text" name="footNum" maxlength="4"
+							style="width: 40px" />
+						<input type="button" value="입력" onclick=""/>
+					</div>
+					<div class="modal-body">
+						<h5>비밀번호 찾기</h5>
+						이  름 : <input type="text" maxlength="8px" /><br/>
+						아이디: <input type="text" maxlength="8px" />
+						<input type="button" value="입력" onclick=""/><br/>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary" data-dismiss="modal">닫기</button>
+					</div>
+				</div>
+				<button id="btnOpen">ID/패스워드 찾기</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
