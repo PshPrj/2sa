@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function fnCheck(form) {
+		if (form.check.checked) {
+			alert("약관에 동의하셨습니다");
+			document.form.submit();
+		} else {
+			alert("약관 내용을 확인해야 회원가입이 가능합니다");
+		}
+	}
+</script>
+</head>
+<body>
+	<form name="form" method="post" action="member">
+	<input type="hidden" name="cmd" value="AGREE"/>
+	
+		<div>
+			<textarea rows="30" cols="80">
+				회원가입 약관
+				환불안됨
+				탈퇴안됨
+				개인정보 동의
+나랏말싸미 듕귁에 달아
+문자와를 서로 사맛디 아니할쎄
+이런 전차로 어린백성이
+니르고저 할빼이셔도
+마참내 제 뜻을 능히펴지
+못할놈이 하니다.
+내이를 어여삐 녀겨
+새로 스물여덟자를 맹가노니
+사람마다 수비니겨 날로쓰매
+편아케 하고저 할 따라미니라.
+
+우리나라 말이 중국과 달라
+문자와 말(음성)이 서로 맞지 않으니
+이런 이유로 어리석은 백성들이
+말하고자 하는 바가 있어도
+그러지 못하는 사람이많다.
+내 이를 불쌍히 여겨
+새로 스물여덟자를 만드니
+모든사람마다 이것을 쉽게 익혀
+편히 사용하고자 할 따름이니라.
+			</textarea>
+			<br />
+			<div>
+				상기 약관에 동의함 <input type="checkbox" name="check"/>	&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="button" value="회원가입" onclick="fnCheck(this.form)" />&nbsp;&nbsp;
+			</div>
+		</div>
+	</form>
+</body>
+</html>
