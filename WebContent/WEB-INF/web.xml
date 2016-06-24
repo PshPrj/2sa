@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>1jo</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>front</servlet-name>
+  	<servlet-class>board.controller.FrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>front</servlet-name>
+  	<url-pattern>/front</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>board.do</servlet-name>
+  	<servlet-class>board.controller.BoardController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>board.do</servlet-name>
+  	<url-pattern>/board.do</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>estimate.do</servlet-name>
+  	<servlet-class>board.controller.EstimateController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>estimate.do</servlet-name>
+  	<url-pattern>/estimate.do</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>reservation.do</servlet-name>
+  	<servlet-class>board.controller.ReservationController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>reservation.do</servlet-name>
+  	<url-pattern>/reservation.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>notice.do</servlet-name>
+  	<servlet-class>board.controller.NoticeController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>notice.do</servlet-name>
+  	<url-pattern>/notice.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>comment.do</servlet-name>
+  	<servlet-class>board.controller.CommentController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>comment.do</servlet-name>
+  	<url-pattern>/comment.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>qna.do</servlet-name>
+  	<servlet-class>board.controller.QnAController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>qna.do</servlet-name>
+  	<url-pattern>/qna.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>review.do</servlet-name>
+  	<servlet-class>board.controller.ReviewController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>review.do</servlet-name>
+  	<url-pattern>/review.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>eUpdate.do</servlet-name>
+  	<servlet-class>board.controller.EstimateUpdateController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>eUpdate.do</servlet-name>
+  	<url-pattern>/eUpdate.do</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>drawing.do</servlet-name>
+  	<servlet-class>board.controller.DrawingController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>drawing.do</servlet-name>
+  	<url-pattern>/drawing.do</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>mypage</servlet-name>
+  	<servlet-class>mypage.controller.MyPageController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>mypage</servlet-name>
+  	<url-pattern>/mypage</url-pattern>
+  </servlet-mapping>
+   <servlet>
+  	<servlet-name>staffpage</servlet-name>
+  	<servlet-class>staffpagecontroller.Staff_Controller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>staffpage</servlet-name>
+  	<url-pattern>/staffpage</url-pattern>
+  </servlet-mapping>
+ 
+    <servlet>
+  	<servlet-name>staffmodal</servlet-name>
+  	<servlet-class>staffpagecontroller.Modal_Controller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>staffmodal</servlet-name>
+  	<url-pattern>/staffmodal</url-pattern>
+  </servlet-mapping>
+ 
+ 
+     <servlet>
+  	<servlet-name>calendar</servlet-name>
+  	<servlet-class>staffpagecontroller.Calendar_Controller</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>calendar</servlet-name>
+  	<url-pattern>/calendar</url-pattern>
+  </servlet-mapping>
+  
+     <servlet>
+  	<servlet-name>schedule</servlet-name>
+  	<servlet-class>board.model.ScheduleController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>schedule</servlet-name>
+  	<url-pattern>/schedule</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>member</servlet-name>
+    <servlet-class>board.controller.memberControllor</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>member</servlet-name>
+    <url-pattern>/member</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
