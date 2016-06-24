@@ -27,27 +27,15 @@
 				<c:when test="${prog != null}">
 					 <c:if test="${d_day == date}">
 						<tr>
-							<td id="start">
-								<fmt:parseDate value="${prog.movement_start_time}" pattern="yyyy-MM-dd HH:mm:ss" var="start" />
-								<fmt:formatDate value="${start}" type="time" />
-							</td>
+							<td id="start"><fmt:parseDate value="${prog.movement_start_time}" pattern="yyyy-MM-dd HH:mm:ss" var="start" /><fmt:formatDate value="${start}" type="time" /></td>
 							
-							<td id="leave">
-								<fmt:parseDate value="${prog.truck_leave_time}" pattern="yyyy-MM-dd HH:mm:ss" var="leave" />
-								<fmt:formatDate value="${leave}" type="time" />
-							</td>
+							<td id="leave"><fmt:parseDate value="${prog.truck_leave_time}" pattern="yyyy-MM-dd HH:mm:ss" var="leave" /><fmt:formatDate value="${leave}" type="time" /></td>
 							
-							<td id="depart">
-								<fmt:parseDate value="${prog.depart_time}" pattern="yyyy-MM-dd HH:mm:ss" var="leave" />
-								<fmt:formatDate value="${leave}" type="time" />
-							</td>
+							<td id="depart"><fmt:parseDate value="${prog.depart_time}" pattern="yyyy-MM-dd HH:mm:ss" var="leave" /><fmt:formatDate value="${leave}" type="time" /></td>
 							
 							<td></td>
 							
-							<td id="done">
-								<fmt:parseDate value="${prog.complete_time}" pattern="yyyy-MM-dd HH:mm:ss" var="leave" />
-								<fmt:formatDate value="${leave}" type="time" />
-							</td>
+							<td id="done"><fmt:parseDate value="${prog.complete_time}" pattern="yyyy-MM-dd HH:mm:ss" var="leave" /><fmt:formatDate value="${leave}" type="time" /></td>
 						</tr>
 					 </c:if>
 				</c:when>
