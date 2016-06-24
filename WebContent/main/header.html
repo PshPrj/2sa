@@ -1,0 +1,213 @@
+<script>
+//로그인 버튼 동작
+	$(document).ready(function(){
+		//ID 비밀번호 찾기 modal
+		$(function() {
+			$("#find-id-pw").click(function() {
+				$("#themodal").modal();
+			});
+		});
+		$(function(){
+			$("#findID").click(function(){
+				document.find.submit();
+			})
+		});
+		$(function(){
+			$("#findPW").click(function() {
+				document.find.submit();
+			})
+		});
+		
+		//회원가입 modal
+		$(function(){
+			$("#f").click(function(){
+				$("#myModal").modal();
+			})
+		});
+		
+		$("#sign-in").click(
+			function(){
+				if(log.r_id.value =="" && log.r_password.value ==""){
+					alert("아이디와 비밀번호를 입력하세요");
+				}
+				else if(log.r_password.value ==""){
+					alert("비밀번호를 입력하세요");
+				}
+				else if(log.r_id.value ==""){
+					alert("아이디를 입력하세요");
+				}
+				else {
+					$.ajax({
+						type:"POST",
+						url:"../member?cmd=LOG",
+						data :({"r_id":$("#r_id").val(), "r_password":$("#r_password").val()})
+					}).success(function(data) {
+						var result = $(data).text();
+						if(result == "id"){
+							alert("아이디를 다시 확인하세요");
+						}
+						else if(result == "pw"){
+							alert("비밀번호를 확인하세요");
+						}
+						else{
+							$("#logw").val(result);
+							document.logwho.submit();
+						}
+					});
+				}
+		});
+	});
+	
+	function fnCheck() {
+		if (form1.check.checked) {
+			alert("약관에 동의하셨습니다");
+			location.href="../register/registPage.jsp";
+		} else {
+			alert("약관 내용을 확인해야 회원가입이 가능합니다");
+		}
+	}
+
+</script>
+<!-- 로그인시 이용자/관리자 구별 -->
+<form method="POST" id="logwho" name="logwho" action="../member">
+<input type="hidden" id="cmd" name="cmd" value="LW"/>
+<input type="hidden" id="logw" name="logw" value=""/>
+</form>
+
+<div class="row-fluid" background-img=url('../img/1.jpg')>
+	<div class="span2">
+		<a href="/main/index.jsp"><img alt="" src="../img/15.png"></a>
+	</div>
+	<!-- 메인 페이지 로그인, 회원 가입 버튼 -->
+	<div class="span4 offset6 dropdown" style="margin-top: 50px;">
+		
+		<div class="span6">
+			<div style="margin-right:-290px;"><a href="#Modal" role="button" class="btn" data-toggle="modal" id="r">회원가입</a></div>
+		</div>
+		<div class="span6">
+		<div align="right">
+		<div class="dropdown">
+			<a class="dropdown-toggle btn" href="#" data-toggle="dropdown">로그인 <strong class="caret"></strong></a>
+			<div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px; right: 0; left: auto;">
+			<form method="post" action="../member" id="log" name="log" accept-charset="UTF-8">
+			<input type="hidden" name="cmd" value="LOG"/>
+				<input style="margin-bottom: 15px; font-family: 'Jeju Gothic', serif;" type="text" placeholder="example@gmail.com" id="r_id" name="r_id">
+				<input style="margin-bottom: 15px; font-family: 'Jeju Gothic', serif;" type="password" placeholder="Password" id="r_password" name="r_password">
+				<div align="center"><input class="btn btn-primary btn-sm" type="button" name="sign-in" id="sign-in" value="로그인" style="height:40px; width:150px; height:40px; width:150px;margin-bottom:10px; font-family: 'Jeju Gothic', serif;"></div>
+                <div align="center"><img src='../img/naver_login.PNG' id="sign-in-naver" style="height:40px; width:150px; align:center; margin-bottom:10px;"></div>
+				<div align="center"><input class="btn btn-primary btn-sm" type="button" id="find-id-pw" value="ID/PW 찾기" style="height:40px; width:150px; margin-bottom:10px; font-family: 'Jeju Gothic', serif;"></div>
+			</form>
+			</div>
+		</div>
+		</div>
+		</div>
+
+<!-- ID, 비밀번호 찾기 modal -->
+	<div class="container">
+		<div class="row-fluid">
+			<div class="span10">
+				<form name="find" method="POST" action="../member">
+				<input type="hidden" name="cmd" value="FIND"/>
+				<div class="modal hide" id="themodal">
+					<div class="modal-header">
+						<a href="#" class="close" data-dismiss="modal">&times;</a>
+						<h3>ID/패스워드 찾기</h3>
+					</div>
+					<div class="modal-body">
+						<h5>아이디찾기</h5>
+						이 름 : <input type="text" id="id_name" name="id_name" maxlength="8" /><br/>
+						전화번호 : <input type="text" id="f_headNum" name="f_headNum" maxlength="3" style="width: 40px" />-
+						<input type="text" id="f_midNum" name="f_midNum" maxlength="4" style="width: 40px" />-
+						<input type="text" id="f_footNum" name="f_footNum" maxlength="4" style="width: 40px" />&nbsp;&nbsp;&nbsp;
+						<input type="button" value="찾기" id="findID" name="findID"/>
+					</div>
+					<div class="modal-body">
+						<h5>비밀번호 찾기</h5>
+						이  름 : <input type="text" id="pw_name" name="pw_name" maxlength="8" /><br/>
+						아 이 디: <input type="text" id="fi_id" name="fi_id" maxlength="15" />&nbsp;&nbsp;&nbsp;
+						<input type="button" value="찾기" id="findPW" name="findPW"/><br/>
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary" data-dismiss="modal">닫기</button>
+					</div>
+				</div>
+				
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- 회원 가입 모달 시작 -->
+		<div id="Modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					<h3>회원 가입 약관</h3>
+				</div>
+
+<div id="registerCheck" class="modal-body">
+	<form name="form1" method="post" action="/member">
+	<input type="hidden" name="cmd" value="AGREE"/>
+	
+<!-- 약관 내용  -->
+	<div>
+		<textarea rows="30" cols="80">
+		개인정보 동의
+1.개인정보의 수집 및 이용에 대한 동의
+
+1.1 일반 개인정보의 수집 및 이용에 대한 동의
+
+1.1.1 필수적 수집 및 이용(회사는 귀하와의 거래과정에서 아래에 열거된 귀하의 개인정보 일부 또는 전부를 수집할 수 있습니다)
+
+1.1.1.1 수집항목
+ 성명(한글, 영문), 회사명, 국가, 전화번호(회사, 집, 휴대전화), 팩스번호(회사, 집), 주소(도시, 주/도, 국가 포함), 우편번호, 은행계좌번호, 신용카드 정보(카드회사 상호, 카드 종류, 카드 번호, 유효기간), 아이디, 닉네임, 고객번호
+ (사업자 고객의 경우) 사업자등록번호, 대표자 성명, 담당자 성명(한글, 영문), 회사주소, 우편번호, 전자우편주소
+ (스폰서쉽 마케팅 목적으로) 지역, 직책 범주, 직책, 고객의 담당지역, 고객의 운송 영향력, 회사주소, 손님, 손님 종류, 손님의 영업/신원 확인, 손님 전자우편주소, 필요한 경우 이벤트를 위한 보험 정보
+ (민원 신청의 경우) 발송인/송하인, 수취인/수하인 및 신청인 정보(성명, 연락처, 회사, 주소, 국가, 우편번호, 전화번호, 팩스번호, 전자우편주소, 운송장 번호 또는 운임청구서 번호, 민원내역(발송정보, 손상정보, 청구금액)
+
+1.1.1.2 수집 및 이용목적
+ 영업: 물품배송, 포장 서비스, 청구서 발송, 요금(운임, 창고비용 등) 결제, 수입 및 수출 물품 세관신고, 포장재 제공 등
+ 고객 등록
+ 서비스 제공에 따른 상거래의 설정유지와 관련하여 신용조회회사 또는 신용정보집중기관에 고객의 채무불이행 정보를 조회
+ 마케팅 및 프로모션: 전화, SMS, 이메일 등을 통해 서비스 관련 정보 및 회사 뉴스 제공, 회사가 주최하거나 후원하는 이벤트 관련 초청이나 티켓 제공, FRC 프로모션 등
+ 분쟁처리: 민원사항 처리, 문의 및 답변, 기타 분쟁해결
+ 시설 보안 및 불법 접근 방지
+ 신용평가 (채무불이행 정보 확인)
+
+1.1.1c) 보유 및 이용기간
+ 관계 법령의 규정에 따라 귀하의 개인정보를 보존할 의무가 있는 경우가 아닌 한, 귀하의 개인정보는 수집 및 이용 목적을 달성할 때까지 보유 및 이용합니다.
+
+1.1.2) 귀하는 위와 같은 개인정보의 수집 및 이용을 거부할 수 있습니다. 다만, 일반 개인정보의 수집 및 이용에 동의하지 않을 경우 계약의 체결/유지가 불가능하거나 회사가 제공 하는 혜택을 제공받을 수 없습니다. 
+			</textarea>
+			<br />
+			
+			<!-- 약관버튼 -->
+			<div>
+				상기 약관에 동의함 <input type="checkbox" name="check"/>	&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="button" value="회원가입" onclick="fnCheck()" />&nbsp;&nbsp;
+			</div>
+		</div>
+	</form>
+			</div>
+			<div class="modal-footer">
+			</div>
+		</div>
+	<!-- 회원 가입 모달 끝 -->
+
+
+	<!-- 네이버 로그인 시작 -->
+		<div id="naver" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-header">
+					<h3>네이버 로그인</h3>
+				</div>
+			<div class="modal-body">
+				<p>내용</p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-primary">확인</button>
+				<button class="btn" data-dismiss="modal" aria-hidden="true">취소</button>
+			</div>
+		</div>
+	<!-- 네이버 로그인 끝 -->	
+		
+	</div>
+
+</div>
